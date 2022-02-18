@@ -6,3 +6,51 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<div class="container">
+    <!-- Start of Login form -->
+    <form method="post">
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" name="email" id="email" class="form-control"
+                   required placeholder="Your Email *" />
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password *</label>
+            <input type="password" name="password" id="password" class="form-control"
+                   require placeholder="Your Password *" />
+        </div>
+
+        <div class="form-group">
+            <div class="checkbox pad-bottom-10">
+                <input type="checkbox" id="check1" name="remember" value="yes">
+                <label for="check1">Keep me signed in</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Sign in" class="btn btn-dark btn-main btn-effect nomargin" />
+        </div>
+    </form>
+    <!-- End of Login form -->
+    
+    
+    <form asp-controller="Home" asp-action="Result" method="post">
+        <div class="form-group">
+            <label for="val1">Val 1</label>
+            <input name="a" id="val1" class="form-control"
+                   required placeholder="Value" />
+        </div>
+         
+        <div class="form-group">
+            <label for="val2">Val 2</label>
+            <input name="b" id="val2" class="form-control"
+                   required placeholder="Value" />
+        </div>
+         
+        <div class="form-group">
+            <input type="submit" value="Sum" class="btn btn-dark btn-main btn-effect nomargin" />
+        </div>
+    </form>
+</div>
