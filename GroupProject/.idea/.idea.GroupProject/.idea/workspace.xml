@@ -5,24 +5,7 @@
     <projectFile profileName="IIS Express">GroupProject/GroupProject.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="083c522c-b384-4c55-a162-162794fab02a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GroupProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GroupProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/CssPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/Views/Shared/CssPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/NavbarPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/Views/Shared/HeaderPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.staticwebassets.runtime.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/ref/GroupProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/ref/GroupProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/staticwebassets.build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/staticwebassets.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/staticwebassets.development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/staticwebassets.pack.sentinel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/css/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/wwwroot/css/header.css" afterDir="false" />
-    </list>
+    <list default="true" id="083c522c-b384-4c55-a162-162794fab02a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,6 +85,7 @@
       <workItem from="1645124978848" duration="33000" />
       <workItem from="1645198764489" duration="9463000" />
       <workItem from="1645261633361" duration="4612000" />
+      <workItem from="1645269727752" duration="309000" />
     </task>
     <servers />
   </component>
