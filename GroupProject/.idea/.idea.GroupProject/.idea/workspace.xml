@@ -6,97 +6,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="083c522c-b384-4c55-a162-162794fab02a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GroupProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GroupProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.staticwebassets.runtime.json" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.staticwebassets.runtime.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/ref/GroupProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/ref/GroupProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/staticwebassets.build.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/staticwebassets.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/staticwebassets.development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/GroupProject.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/GroupProject.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/GroupProject.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/GroupProject.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/obj/staticwebassets.pack.sentinel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/wwwroot/css/site.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/wwwroot/js/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery-validation/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery-validation/dist/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery/dist/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery/dist/jquery.min.map" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/GroupProject/wwwroot/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/CssPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject/Views/Shared/CssPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/css/site.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -117,6 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -163,7 +88,7 @@
       <workItem from="1645124183472" duration="726000" />
       <workItem from="1645124978848" duration="33000" />
       <workItem from="1645198764489" duration="9463000" />
-      <workItem from="1645261633361" duration="2932000" />
+      <workItem from="1645261633361" duration="3286000" />
     </task>
     <servers />
   </component>
