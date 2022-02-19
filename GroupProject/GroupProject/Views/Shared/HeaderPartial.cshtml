@@ -7,14 +7,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">STANLEY</a>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">STANLEY</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="work.html">Work</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a asp-controller="Home" asp-action="Work">Work</a></li>
+                <li><a asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-controller="Home" asp-action="Blog">Blog</a></li>
+                <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
             </ul>
         </div>
         <!--/.nav-collapse -->

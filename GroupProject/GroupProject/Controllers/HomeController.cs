@@ -14,6 +14,18 @@ public class HomeController : Controller
     public IActionResult Index() => 
         View();
     
+    public IActionResult About() => 
+        View();
+    
+    public IActionResult Blog() => 
+        View();
+    
+    public IActionResult Contact() => 
+        View();
+    
+    public IActionResult Work() => 
+        View();
+    
     public IActionResult Result(double a, double b) => 
         View( a + b);
 
