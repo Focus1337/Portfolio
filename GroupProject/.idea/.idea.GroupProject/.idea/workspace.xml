@@ -6,118 +6,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="083c522c-b384-4c55-a162-162794fab02a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Portfolio.Misc/Portfolio.Misc.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Portfolio.Misc/Services/EmailSender/EmailConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Portfolio.Misc/Services/EmailSender/EmailService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Portfolio.Misc/Services/EmailSender/IEmailService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Portfolio.Misc/Services/EmailSender/Message.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Portfolio/Controllers/ContactController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Portfolio/Views/_ViewImports.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Portfolio/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GroupProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GroupProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/GroupProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Portfolio.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Middleware/RequestLoggerMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Middleware/RequestLoggerMiddleware.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Models/ErrorViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Models/ErrorViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Home/About.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Home/About.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Home/Blog.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Home/Blog.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Home/BlogDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Home/BlogDetails.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Home/Contact.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Contact/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Home/Privacy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Home/Privacy.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Home/Result.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Home/Result.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Home/Work.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Home/Work.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Home/WorkDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Home/WorkDetails.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/CssPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Shared/CssPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/Error.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Shared/Error.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/FooterPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Shared/FooterPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/HeaderPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Shared/HeaderPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/MetatagsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Shared/MetatagsPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/ScriptsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Shared/ScriptsPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/_Layout.cshtml.css" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Shared/_Layout.cshtml.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Shared/_ValidationScriptsPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/_ViewImports.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/Views/_ViewStart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/_ViewStart.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/GroupProject.staticwebassets.runtime.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/bin/Debug/net6.0/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.GlobalUsings.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.MvcApplicationPartsAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.RazorAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.RazorAssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.csproj.AssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/GroupProject.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/apphost.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/ref/GroupProject.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/refint/GroupProject.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/scopedcss/bundle/GroupProject.styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/scopedcss/projectbundle/GroupProject.bundle.scp.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/staticwebassets.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/Debug/net6.0/staticwebassets.development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/GroupProject.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/GroupProject.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/GroupProject.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/obj/staticwebassets.pack.sentinel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/css/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/css/blog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/css/contact-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/css/contact-page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/css/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/css/footer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/apple-touch-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/apple-touch-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/blog01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/blog01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/loader.gif" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/loader.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/portfolio/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/portfolio/1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/portfolio/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/portfolio/2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/portfolio/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/portfolio/3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/portfolio/port01.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/portfolio/port01.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/portfolio/port02.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/portfolio/port02.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/portfolio/port03.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/portfolio/port03.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/portfolio/port04.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/portfolio/port04.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/portfolio/port05.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/portfolio/port05.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/portfolio/port06.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/portfolio/port06.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/user.png" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/user.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/img/zoom.png" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/img/zoom.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/js/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/bootstrap/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/fonts/glyphicons-halflings-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/fonts/glyphicons-halflings-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/fonts/glyphicons-halflings-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/bootstrap/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/easing/easing.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/easing/easing.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/font-awesome/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/font-awesome/css/font-awesome.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/jquery/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GroupProject/wwwroot/lib/jquery/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/wwwroot/lib/jquery/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio.Misc/Services/EmailSender/EmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio.Misc/Services/EmailSender/EmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio.Misc/Services/EmailSender/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio.Misc/Services/EmailSender/Message.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio/Controllers/ContactController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Controllers/ContactController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio/Middleware/RequestLoggerMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Middleware/RequestLoggerMiddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio/Portfolio.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Portfolio.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio/Views/Contact/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Contact/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio/wwwroot/lib/easing/easing.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio/wwwroot/lib/jquery/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Portfolio/wwwroot/lib/jquery/jquery.min.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +34,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/65a3d18d95c045c8862fda301197e26111a800/1e/ef81be51/MailboxAddress.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/575c31ecc35a636b6f962cb71d53992552941a18982aae1c8e6c16305cc3761b/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -202,6 +102,8 @@
       <workItem from="1645700109216" duration="126000" />
       <workItem from="1645874260092" duration="4152000" />
       <workItem from="1645896223426" duration="358000" />
+      <workItem from="1645896782567" duration="395000" />
+      <workItem from="1645953850473" duration="5099000" />
     </task>
     <servers />
   </component>

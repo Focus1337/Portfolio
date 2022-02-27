@@ -6,7 +6,7 @@ public class RequestLoggerMiddleware
 
     public RequestLoggerMiddleware(RequestDelegate next) =>
         _next = next;
-
+    
     public async Task InvokeAsync(HttpContext context)
     {
         Console.WriteLine($"OS: {GetUserPlatform(context)}");
@@ -18,12 +18,12 @@ public class RequestLoggerMiddleware
         Console.WriteLine($"Content type: {contentType}");
         Console.WriteLine($"Protocol: {context.Request.Protocol}");
 
-        using (var reader = new StreamReader(context.Request.Body))
-        {
-            var body = await reader.ReadToEndAsync();
-            Console.WriteLine($"Body: {body}");
-        }
-        
+        // using (var reader = new StreamReader(context.Request.Body))
+        // {
+        //     var body = await reader.ReadToEndAsync();
+        //     Console.WriteLine($"Body: {body}");
+        // }
+
         Console.WriteLine($"Query: {context.Request.QueryString.Value}");
 
         await _next.Invoke(context);

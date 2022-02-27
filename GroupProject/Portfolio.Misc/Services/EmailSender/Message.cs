@@ -12,8 +12,8 @@ public class Message
     {
         To = new List<MailboxAddress>();
 
-        To.AddRange(to.Select(x => new MailboxAddress("govno", x)));
+        To.AddRange(to.Select(x => new MailboxAddress("Stanley Support", x)));
         Subject = subject;
-        Content = content;        
+        Content = content;
     }
 }

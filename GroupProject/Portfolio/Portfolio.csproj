@@ -10,4 +10,8 @@
       <ProjectReference Include="..\Portfolio.Misc\Portfolio.Misc.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\lib\easing\easing.min.js" />
+    </ItemGroup>
+
 </Project>
