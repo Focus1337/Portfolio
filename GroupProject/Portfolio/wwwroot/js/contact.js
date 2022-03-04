@@ -6,7 +6,7 @@
                 document.getElementById("status").innerHTML = "Your message has been sent. Thank you!";
             }
         };
-        xmlHttpRequest.open("POST", "https://localhost:7212/Contact/Send", true);
+        xmlHttpRequest.open("GET", "https://localhost:7212/Contact/Send", true);
         xmlHttpRequest.send();
 
         setTimeout(clearContactStatus, 8000);
