@@ -16,36 +16,36 @@
   </div>
   <div class="row mt">
     <div class="col-lg-8 col-lg-offset-2">
+      
+      <div class="sent-message" id="status" hidden></div>
       <form class="contact-form" asp-action="Send">
         <div class="form-group">
           <input type="text" asp-for="Name" class="form-control" placeholder="Your Name" required/>
         </div>
-        
+
         <div class="form-group">
           <input type="email" asp-for="Email" class="form-control" placeholder="Your Email" required/>
         </div>
-        
+
         <div class="form-group">
           <input type="text" asp-for="Subject" class="form-control" placeholder="Subject" required/>
         </div>
-        
+
         <div class="form-group">
           <textarea class="form-control" asp-for="Message" placeholder="Your Message" rows="5" 
             required></textarea>
         </div>
-        @* *@
-        @* <div class="loading"></div> *@
-        @* <div class="error-message"></div> *@
-        @* <div class="sent-message">Your message has been sent. Thank you!</div> *@
 
         <div class="form-send">
-          <button type="submit" class="btn btn-large">Send Message</button>
+          <button type="submit" class="btn btn-large" onclick="loadContactStatus()">Send Message</button>
         </div>
       </form>
-      
+
     </div>
   </div>
   <!-- /row -->
 </div>
 <!-- /container -->
 </body>
+
+<script src="~/js/contact.js"></script>

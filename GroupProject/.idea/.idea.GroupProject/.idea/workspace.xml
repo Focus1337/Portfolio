@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GroupProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GroupProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Portfolio/Controllers/ContactController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Controllers/ContactController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Portfolio/Views/Contact/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/Views/Contact/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Portfolio/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Portfolio/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -97,7 +97,7 @@
       <workItem from="1645896223426" duration="358000" />
       <workItem from="1645896782567" duration="395000" />
       <workItem from="1645953850473" duration="5931000" />
-      <workItem from="1646413327586" duration="4569000" />
+      <workItem from="1646413327586" duration="10348000" />
     </task>
     <servers />
   </component>

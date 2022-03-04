@@ -25,7 +25,7 @@ public class ContactController : Controller
         var message = new Message(new[] {_emailConfig.From}, $"Contact form: {contact.Subject}",
             $"Name: {contact.Name}\nEmail: {contact.Email}\n\n{contact.Message}");
         _emailService.SendEmail(message);
-
-        return Ok("sent successfully");
+        
+         return Ok("sent successfully");
     }
 }
