@@ -8,25 +8,25 @@ namespace PortfolioAPI.Controllers;
 [ApiController]
 public class TodoItemsController : ControllerBase
 {
-    private readonly TodoContext _context;
+    private readonly ApplicationContext _context;
 
-    public TodoItemsController(TodoContext context)
+    public TodoItemsController(ApplicationContext context)
     {
         _context = context;
     }
 
     // GET: api/TodoItems
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TodoItemDTO>>> GetTodoItems()
+    public async Task<ActionResult<IEnumerable<TodoItemDto>>> GetTodoItems()
     {
         return await _context.TodoItems
-            .Select(x => ItemToDTO(x))
+            .Select(x => ItemToDto(x))
             .ToListAsync();
     }
 
     // GET: api/TodoItems/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<TodoItemDTO>> GetTodoItem(long id)
+    public async Task<ActionResult<TodoItemDto>> GetTodoItem(long id)
     {
         var todoItem = await _context.TodoItems.FindAsync(id);
 
@@ -35,15 +35,15 @@ public class TodoItemsController : ControllerBase
             return NotFound();
         }
 
-        return ItemToDTO(todoItem);
+        return ItemToDto(todoItem);
     }
 
     // PUT: api/TodoItems/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateTodoItem(long id, TodoItemDTO todoItemDTO)
+    public async Task<IActionResult> UpdateTodoItem(long id, TodoItemDto todoItemDto)
     {
-        if (id != todoItemDTO.Id)
+        if (id != todoItemDto.Id)
         {
             return BadRequest();
         }
@@ -54,8 +54,8 @@ public class TodoItemsController : ControllerBase
             return NotFound();
         }
 
-        todoItem.Name = todoItemDTO.Name;
-        todoItem.IsComplete = todoItemDTO.IsComplete;
+        todoItem.Name = todoItemDto.Name;
+        todoItem.IsComplete = todoItemDto.IsComplete;
 
         try
         {
@@ -72,12 +72,12 @@ public class TodoItemsController : ControllerBase
     // POST: api/TodoItems
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-    public async Task<ActionResult<TodoItemDTO>> CreateTodoItem(TodoItemDTO todoItemDTO)
+    public async Task<ActionResult<TodoItemDto>> CreateTodoItem(TodoItemDto todoItemDto)
     {
         var todoItem = new TodoItem
         {
-            IsComplete = todoItemDTO.IsComplete,
-            Name = todoItemDTO.Name,
+            IsComplete = todoItemDto.IsComplete,
+            Name = todoItemDto.Name,
             Secret = Guid.NewGuid()
         };
 
@@ -87,7 +87,7 @@ public class TodoItemsController : ControllerBase
         return CreatedAtAction(
             nameof(GetTodoItem),
             new {id = todoItem.Id},
-            ItemToDTO(todoItem));
+            ItemToDto(todoItem));
     }
 
     // DELETE: api/TodoItems/5
@@ -112,8 +112,8 @@ public class TodoItemsController : ControllerBase
         return _context.TodoItems.Any(e => e.Id == id);
     }
 
-    private static TodoItemDTO ItemToDTO(TodoItem todoItem) =>
-        new TodoItemDTO
+    private static TodoItemDto ItemToDto(TodoItem todoItem) =>
+        new TodoItemDto
         {
             Id = todoItem.Id,
             Name = todoItem.Name,

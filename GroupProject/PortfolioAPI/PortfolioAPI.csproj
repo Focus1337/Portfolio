@@ -30,4 +30,8 @@
       <_ContentIncludedByDefault Remove="wwwroot\img\zoom.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Portfolio.Misc\Portfolio.Misc.csproj" />
+    </ItemGroup>
+
 </Project>

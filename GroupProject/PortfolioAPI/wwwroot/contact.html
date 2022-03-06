@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Stanley - Bootstrap Freelancer Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+   
+    <!-- Bootstrap CSS File -->
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+
+    <!-- Libraries CSS Files -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+
+    <!-- Main Stylesheet File -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/contact-page.css" />
+    <link rel="stylesheet" href="css/blog.css" />
+    <link rel="stylesheet" href="css/header.css" />
+</head>
+
+<body>
+<!-- Static navbar -->
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">STANLEY</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">Work</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+<!-- +++++ Contact Section +++++ -->
+<div class="container pt">
+    <div class="row mt">
+        <div class="col-lg-6 col-lg-offset-3 centered">
+            <h3>CONTACT ME</h3>
+            <hr>
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+        </div>
+    </div>
+    <div class="row mt">
+        <div class="col-lg-8 col-lg-offset-2">
+
+            <div class="sent-message" id="status" hidden></div>
+            
+            <form class="contact-form" action="javascript:void(0);" method="POST" onsubmit="sendMessage()">
+                <div class="form-group">
+                    <input type="text" id="send-name" class="form-control" placeholder="Your Name" required/>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="send-email" class="form-control" placeholder="Your Email" required/>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="send-subject" class="form-control" placeholder="Subject" required/>
+                </div>
+
+                <div class="form-group">
+                <textarea class="form-control" id="send-message" placeholder="Your Message" rows="5"
+                    required></textarea>
+                </div>
+
+                <div class="form-send">
+                    <button type="submit" class="btn btn-large">Send Message</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->
+
+<!-- +++++ Footer Section +++++ -->
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h4>My Bunker</h4>
+                <p>
+                    Some Address 987,<br/> +34 9054 5455, <br/> Madrid, Spain.
+                </p>
+            </div>
+            <!-- /col-lg-4 -->
+
+            <div class="col-lg-4">
+                <h4>My Links</h4>
+                <p>
+                    <a href="#">Dribbble</a><br/>
+                    <a href="#">Twitter</a><br/>
+                    <a href="#">Facebook</a>
+                </p>
+            </div>
+            <!-- /col-lg-4 -->
+
+            <div class="col-lg-4">
+                <h4>About Stanley</h4>
+                <p>This cute theme was created to showcase your work in a simple way. Use it wisely.</p>
+            </div>
+            <!-- /col-lg-4 -->
+        </div>
+    </div>
+</div>
+
+<div id="copyrights">
+    <div class="container">
+        <p>
+            &copy; Copyrights <strong>Stanley</strong>. All Rights Reserved
+        </p>
+        <div class="credits">
+            Created with Stanley template by <a href="https://templatemag.com/">TemplateMag</a>
+        </div>
+    </div>
+</div>
+<!-- / copyrights -->
+
+<!-- JavaScript Libraries -->
+<script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="js/contact.js"></script>
+
+</body>
+</html>

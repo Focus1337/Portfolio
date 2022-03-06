@@ -2,12 +2,13 @@
 
 namespace PortfolioAPI.Models;
 
-public class TodoContext : DbContext
+public class ApplicationContext : DbContext
 {
-    public TodoContext(DbContextOptions<TodoContext> options)
+    public ApplicationContext(DbContextOptions<ApplicationContext> options)
         : base(options)
     {
     }
 
     public DbSet<TodoItem> TodoItems { get; set; } = null!;
+    public DbSet<Request> Requests { get; set; } = null!;
 }
