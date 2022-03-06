@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Portfolio.DataAccess;
 using Portfolio.Misc.Services.EmailSender;
 using Portfolio.Models;
 
@@ -8,11 +9,13 @@ public class ContactController : Controller
 {
     private readonly IEmailService _emailService;
     private readonly EmailConfiguration _emailConfig;
+    private readonly ApplicationContext _context;
 
-    public ContactController(IEmailService emailService, EmailConfiguration emailConfig)
+    public ContactController(IEmailService emailService, EmailConfiguration emailConfig, ApplicationContext context)
     {
         _emailService = emailService;
         _emailConfig = emailConfig;
+        _context = context;
     }
 
     [HttpGet]

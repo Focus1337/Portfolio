@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio", "Portfolio\Port
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Misc", "Portfolio.Misc\Portfolio.Misc.csproj", "{F760CB7E-73B6-412F-9743-494FF557AF32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.Entity", "Portfolio.Entity\Portfolio.Entity.csproj", "{F8622B0D-D2F3-484E-AFE7-5290C1C3D18C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio.DataAccess", "Portfolio.DataAccess\Portfolio.DataAccess.csproj", "{323DE962-EE16-4E2B-A857-F67A957FE6E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{F760CB7E-73B6-412F-9743-494FF557AF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F760CB7E-73B6-412F-9743-494FF557AF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F760CB7E-73B6-412F-9743-494FF557AF32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8622B0D-D2F3-484E-AFE7-5290C1C3D18C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8622B0D-D2F3-484E-AFE7-5290C1C3D18C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8622B0D-D2F3-484E-AFE7-5290C1C3D18C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8622B0D-D2F3-484E-AFE7-5290C1C3D18C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{323DE962-EE16-4E2B-A857-F67A957FE6E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{323DE962-EE16-4E2B-A857-F67A957FE6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{323DE962-EE16-4E2B-A857-F67A957FE6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{323DE962-EE16-4E2B-A857-F67A957FE6E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
