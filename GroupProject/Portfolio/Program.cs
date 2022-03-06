@@ -1,12 +1,13 @@
 using Microsoft.EntityFrameworkCore;
-using Portfolio.DataAccess;
+using Portfolio.DataAccess.Repository;
 using Portfolio.Middleware;
 using Portfolio.Misc.Services.EmailSender;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+#region Configure services
 builder.Services.AddControllersWithViews();
+
 var emailConfig = builder.Configuration
     .GetSection("EmailConfiguration")
     .Get<EmailConfiguration>();
@@ -15,24 +16,23 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddDbContext<ApplicationContext>(opts =>
     opts.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection")));
+#endregion
 
+#region Configure app and middleware
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
 
+app.UseMiddleware<ContactMiddleware>();
 app.UseMiddleware<RequestLoggerMiddleware>();
 
 app.MapControllerRoute(
@@ -40,3 +40,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+#endregion

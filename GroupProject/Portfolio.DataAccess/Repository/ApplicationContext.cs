@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Portfolio.Entity;
 
-namespace Portfolio.DataAccess;
+namespace Portfolio.DataAccess.Repository;
 
 public class ApplicationContext : DbContext
 {

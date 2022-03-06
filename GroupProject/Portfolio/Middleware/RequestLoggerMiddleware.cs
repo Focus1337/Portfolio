@@ -9,6 +9,7 @@ public class RequestLoggerMiddleware
     
     public async Task InvokeAsync(HttpContext context)
     {
+        Console.WriteLine("\n");
         Console.WriteLine($"OS: {GetUserPlatform(context)}");
         Console.WriteLine($"Browser: {GetUserBrowser(context)}");
         Console.WriteLine($"Method: {context.Request.Method}");

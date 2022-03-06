@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Portfolio.DataAccess;
+using Portfolio.DataAccess.Repository;
+using Portfolio.Entity;
 using Portfolio.Misc.Services.EmailSender;
 using Portfolio.Models;
 
@@ -28,7 +29,17 @@ public class ContactController : Controller
         var message = new Message(new[] {_emailConfig.From}, $"Contact form: {contact.Subject}",
             $"Name: {contact.Name}\nEmail: {contact.Email}\n\n{contact.Message}");
         _emailService.SendEmail(message);
+
+        _context.Requests.Add(new Request
+        {
+            Id = Guid.NewGuid(),
+            Name = contact.Name,
+            Email = contact.Email,
+            Subject = contact.Subject,
+            Message = contact.Message
+        });
+        _context.SaveChanges();
         
-         return Ok("sent successfully");
+        return Ok("sent successfully");
     }
 }
