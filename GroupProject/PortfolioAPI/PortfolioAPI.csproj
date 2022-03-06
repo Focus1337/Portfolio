@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.2" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\img\apple-touch-icon.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\blog01.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\favicon.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\loader.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\portfolio\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\portfolio\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\portfolio\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\portfolio\port01.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\portfolio\port02.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\portfolio\port03.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\portfolio\port04.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\portfolio\port05.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\portfolio\port06.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\user.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\img\zoom.png" />
+    </ItemGroup>
+
+</Project>

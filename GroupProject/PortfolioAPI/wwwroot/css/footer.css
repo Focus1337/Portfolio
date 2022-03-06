@@ -1,0 +1,36 @@
+﻿#footer {
+    background-color: #2f2f2f;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#footer p {
+    color: white;
+}
+
+#footer h4 {
+    color: white;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+}
+
+/* Copyrights */
+
+#copyrights {
+    background: #222222;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#copyrights p {
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+#copyrights a {
+    color: #1abc9c;
+}
+
+.credits {
+    color: #999;
+}
