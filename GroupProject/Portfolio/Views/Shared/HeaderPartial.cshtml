@@ -15,6 +15,20 @@
                 <li><a asp-controller="Home" asp-action="About">About</a></li>
                 <li><a asp-controller="Home" asp-action="Blog">Blog</a></li>
                 <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                
+                @if(User.Identity.IsAuthenticated)
+                {
+                    <p>@User.Identity.Name</p>
+                 
+                    <form method="post" asp-controller="Auth" asp-action="Logout">
+                        <input type="submit" value="Выход" />
+                    </form>
+                }
+                else
+                {
+                    <a asp-controller="Auth" asp-action="Login">Вход</a>
+                    <a asp-controller="Auth" asp-action="Register">Регистрация</a>
+                }
             </ul>
         </div>
         <!--/.nav-collapse -->

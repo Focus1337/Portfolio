@@ -22,4 +22,15 @@
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\Register.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\Account\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ValidationScriptsPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Auth\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Auth\Register.cshtml" />
+    </ItemGroup>
+
 </Project>

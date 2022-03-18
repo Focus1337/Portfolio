@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Entity;
 
 namespace Portfolio.DataAccess.Repository;
 
-public class ApplicationContext : DbContext
+public class ApplicationContext : IdentityDbContext<User>
 {
     public DbSet<Request> Requests { get; set; } = null!;
 
