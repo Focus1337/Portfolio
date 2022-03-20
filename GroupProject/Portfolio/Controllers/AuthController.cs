@@ -9,25 +9,25 @@ public class AuthController : Controller
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
- 
+
     public AuthController(UserManager<User> userManager, SignInManager<User> signInManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
     }
-    
+
     [HttpGet]
     public IActionResult Register()
     {
         return View();
     }
-    
+
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel model)
     {
-        if(ModelState.IsValid)
+        if (ModelState.IsValid)
         {
-            var user = new User {Email = model.Email, UserName = model.Email};//, Year=model.Year};
+            var user = new User {Email = model.Email, UserName = model.Email}; //, Year=model.Year};
             // добавляем пользователя
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
@@ -44,14 +44,15 @@ public class AuthController : Controller
                 }
             }
         }
+
         return View(model);
     }
-    
-    
+
+
     [HttpGet]
     public IActionResult Login(string returnUrl = null)
     {
-        return View(new LoginViewModel { ReturnUrl = returnUrl });
+        return View(new LoginViewModel {ReturnUrl = returnUrl});
     }
 
     [HttpPost]
@@ -91,5 +92,5 @@ public class AuthController : Controller
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
     }
-    
+
 }
