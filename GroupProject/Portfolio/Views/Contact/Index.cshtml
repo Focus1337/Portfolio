@@ -1,12 +1,11 @@
-﻿@model Portfolio.Models.Contact
+﻿@model Portfolio.ViewModels.RequestViewModel
 
 @{
     Layout = "_Layout";
 }
 
-<body>
 <!-- +++++ Contact Section +++++ -->
-<div class="container pt">
+<div class="container pt100">
   <div class="row mt">
     <div class="col-lg-6 col-lg-offset-3 centered">
       <h3>CONTACT ME</h3>
@@ -16,28 +15,24 @@
   </div>
   <div class="row mt">
     <div class="col-lg-8 col-lg-offset-2">
-      
-      <div class="sent-message" id="status" hidden></div>
+
       <form class="contact-form" asp-action="Send">
+        <div asp-validation-summary="ModelOnly"></div>
         <div class="form-group">
-          <input type="text" asp-for="Name" class="form-control" placeholder="Your Name" required/>
+          <input type="text" asp-for="Name" id="contactName" class="form-control" placeholder="Your Name" required/>
         </div>
-
         <div class="form-group">
-          <input type="email" asp-for="Email" class="form-control" placeholder="Your Email" required/>
+          <input type="email" asp-for="Email" id="contactEmail" class="form-control" placeholder="Your Email" required/>
         </div>
-
         <div class="form-group">
-          <input type="text" asp-for="Subject" class="form-control" placeholder="Subject" required/>
+          <input type="text" asp-for="Subject" id="contactSubject" class="form-control" placeholder="Subject" required/>
         </div>
-
         <div class="form-group">
-          <textarea class="form-control" asp-for="Message" placeholder="Your Message" rows="5" 
+          <textarea class="form-control" asp-for="Message" id="contactMessage" placeholder="Your Message" rows="5" 
             required></textarea>
         </div>
-
         <div class="form-send">
-          <button type="submit" class="btn btn-large" onclick="loadContactStatus()">Send Message</button>
+          <button type="submit" class="btn btn-large">Send Message</button>
         </div>
       </form>
 
@@ -46,6 +41,5 @@
   <!-- /row -->
 </div>
 <!-- /container -->
-</body>
 
 <script src="~/js/contact.js"></script>

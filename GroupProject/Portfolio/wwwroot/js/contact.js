@@ -1,18 +1,23 @@
-﻿    function loadContactStatus() {
-        let xmlHttpRequest = new XMLHttpRequest();
-        xmlHttpRequest.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("status").hidden = false;
-                document.getElementById("status").innerHTML = "Your message has been sent. Thank you!";
-            }
-        };
-        xmlHttpRequest.open("GET", "https://localhost:7212/Contact/Send", true);
-        xmlHttpRequest.send();
-
-        setTimeout(clearContactStatus, 8000);
+﻿function saveContactFormData() {
+    let contactName = document.getElementById("contactName");
+    let contactEmail = document.getElementById("contactEmail");
+    let contactSubject = document.getElementById("contactSubject");
+    let contactMessage = document.getElementById("contactMessage");
+    contactName.oninput = () => {
+        sessionStorage.setItem("contactName", contactName.value);
     }
-
-    function clearContactStatus() {
-        document.getElementById("status").hidden = true;
-        document.getElementById("status").innerHTML = "";
+    contactEmail.oninput = () => {
+        sessionStorage.setItem("contactEmail", contactEmail.value);
     }
+    contactSubject.oninput = () => {
+        sessionStorage.setItem("contactSubject", contactSubject.value);
+    }
+    contactMessage.oninput = () => {
+        sessionStorage.setItem("contactMessage", contactMessage.value);
+    }
+    contactName.value = sessionStorage.getItem("contactName");
+    contactEmail.value = sessionStorage.getItem("contactEmail");
+    contactSubject.value = sessionStorage.getItem("contactSubject");
+    contactMessage.value = sessionStorage.getItem("contactMessage");
+}
+saveContactFormData();

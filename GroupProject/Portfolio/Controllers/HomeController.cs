@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Portfolio.Models;
+using Portfolio.ViewModels;
 
 namespace Portfolio.Controllers;
 
@@ -21,12 +21,6 @@ public class HomeController : Controller
         View();
 
     public IActionResult Work() => 
-        View();
-    
-    public IActionResult Result(double a, double b) => 
-        View( a + b);
-
-    public IActionResult Privacy() => 
         View();
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -6,22 +6,20 @@ using Portfolio.Middleware;
 using Portfolio.Misc.Services.EmailSender;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
 
 #region Configure services
-builder.Services.AddControllersWithViews();
+services.AddControllersWithViews();
 
-var emailConfig = builder.Configuration
-    .GetSection("EmailConfiguration")
-    .Get<EmailConfiguration>();
-builder.Services.AddSingleton(emailConfig);
-builder.Services.AddScoped<IEmailService, EmailService>();
+services
+    .AddSingleton(builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>())
+    .AddScoped<IEmailService, EmailService>();
 
-builder.Services.AddDbContext<ApplicationContext>(opts =>
+services.AddDbContext<ApplicationContext>(opts =>
     opts.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection")));
 
-builder.Services.AddIdentity<User, IdentityRole>()
+services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationContext>();
-
 
 #endregion
 
@@ -30,19 +28,22 @@ var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    app
+        .UseExceptionHandler("/Home/Error")
+        .UseHsts();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
+app
+    .UseHttpsRedirection()
+    .UseStaticFiles()
+    .UseRouting();
 
-app.UseAuthentication();    // подключение аутентификации
+app.UseAuthentication();
 app.UseAuthorization();
 
-// app.UseMiddleware<ContactMiddleware>();
-// app.UseMiddleware<RequestLoggerMiddleware>();
+// app
+// .UseMiddleware<ContactMiddleware>()
+// .UseMiddleware<RequestLoggerMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

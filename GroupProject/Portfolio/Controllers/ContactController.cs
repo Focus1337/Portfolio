@@ -2,7 +2,7 @@
 using Portfolio.DataAccess.Repository;
 using Portfolio.Entity;
 using Portfolio.Misc.Services.EmailSender;
-using Portfolio.Models;
+using Portfolio.ViewModels;
 
 namespace Portfolio.Controllers;
 
@@ -24,22 +24,35 @@ public class ContactController : Controller
         View();
 
     [HttpPost]
-    public IActionResult Send([Bind("Name,Email,Subject,Message")] Contact contact)
+    [ValidateAntiForgeryToken]
+    public IActionResult Send(RequestViewModel model)
     {
-        var message = new Message(new[] {_emailConfig.From}, $"Contact form: {contact.Subject}",
-            $"Name: {contact.Name}\nEmail: {contact.Email}\n\n{contact.Message}");
-        _emailService.SendEmail(message);
-
-        _context.Requests.Add(new Request
+        if (ModelState.IsValid)
         {
-            Id = Guid.NewGuid(),
-            Name = contact.Name,
-            Email = contact.Email,
-            Subject = contact.Subject,
-            Message = contact.Message
-        });
-        _context.SaveChanges();
-        
-        return Ok("sent successfully");
+            var message = new Message(new[] {_emailConfig.From}, $"Contact form: {model.Subject}",
+                $"Name: {model.Name}\nEmail: {model.Email}\n\n{model.Message}");
+            try
+            {
+                _emailService.SendEmail(message);
+
+                _context.Requests.Add(new Request
+                {
+                    Id = Guid.NewGuid(),
+                    Name = model.Name,
+                    Email = model.Email,
+                    Subject = model.Subject,
+                    Message = model.Message
+                });
+                _context.SaveChanges();
+
+                ModelState.AddModelError("", "Mail sent successfully!");
+            }
+            catch (MailKit.Net.Smtp.SmtpProtocolException)
+            {
+                ModelState.AddModelError("", "Mail service currently doesn't work. Try later.");
+            }
+        }
+
+        return View("Index", model);
     }
 }
