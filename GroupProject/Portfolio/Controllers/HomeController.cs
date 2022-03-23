@@ -22,6 +22,12 @@ public class HomeController : Controller
 
     public IActionResult Work() => 
         View();
+    
+    public IActionResult AccessDenied() =>
+        View();
+
+    public IActionResult PageNotFound() => 
+        View();
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error() => 

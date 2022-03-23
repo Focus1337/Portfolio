@@ -27,13 +27,15 @@ public class AuthController : Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new User {Email = model.Email, UserName = model.Email}; //, Year=model.Year};
+            var user = new User {Email = model.Email, UserName = model.Email};
             // добавляем пользователя
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user, "user");
                 // установка куки
                 await _signInManager.SignInAsync(user, false);
+
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -117,8 +119,8 @@ public class AuthController : Controller
         return RedirectToAction("Index", "Home");
     }
 
-    
-    // [HttpGet]
-    // public IActionResult Lockout() =>
-    //     View();
+
+    [HttpGet]
+    public IActionResult ExternalLogins() =>
+        View();
 }

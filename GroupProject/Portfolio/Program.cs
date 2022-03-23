@@ -18,8 +18,19 @@ services
 services.AddDbContext<ApplicationContext>(opts =>
     opts.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection")));
 
-services.AddIdentity<User, IdentityRole>()
+services.AddIdentity<User, IdentityRole>(opts=> {
+        opts.Password.RequiredLength = 6;
+        opts.Password.RequireNonAlphanumeric = false; 
+        opts.Password.RequireLowercase = false;
+        opts.Password.RequireUppercase = false;
+        opts.Password.RequireDigit = false;
+    })
     .AddEntityFrameworkStores<ApplicationContext>();
+
+services.ConfigureApplicationCookie(options =>
+{
+    options.AccessDeniedPath = new PathString("/Home/AccessDenied");
+});
 
 #endregion
 

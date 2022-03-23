@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Portfolio.DataAccess.Repository;
 using Portfolio.Entity;
 using Portfolio.Misc.Services.EmailSender;
@@ -24,6 +25,7 @@ public class ContactController : Controller
         View();
 
     [HttpPost]
+    [Authorize(Roles="user")]
     [ValidateAntiForgeryToken]
     public IActionResult Send(RequestViewModel model)
     {

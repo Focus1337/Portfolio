@@ -18,8 +18,21 @@
 
                 @if(User.Identity!.IsAuthenticated)
                 {
-                    <li><a asp-controller="Home" asp-action="Work" class="">@User.Identity.Name!.Split('@')[0]</a></li>
-                                                                                          
+                    if (User.IsInRole("admin") || User.IsInRole("admin"))
+                    {
+                        <li><a asp-controller="Admin" asp-action="Index" class="">Admin Panel</a></li>
+                    }
+
+                    if (User.IsInRole("owner"))
+                    {
+                        <li><a asp-controller="Roles" asp-action="Index" class="">Roles</a></li>
+                    }
+
+                    if (User.IsInRole("user"))
+                    {
+                        <li><a asp-controller="Users" asp-action="Index" class="">@User.Identity.Name!.Split('@')[0]</a></li>
+                    }
+                    
                     <li>
                         <form method="post" asp-controller="Auth" asp-action="Logout">
                             <button type="submit" class="btn navbar-btn">Log out</button>
