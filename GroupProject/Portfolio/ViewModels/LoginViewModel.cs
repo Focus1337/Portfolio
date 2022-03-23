@@ -1,20 +1,22 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Portfolio.ViewModels;
 
 public class LoginViewModel
 {
     [Required]
-    [Display(Name = "Email")]
+    [EmailAddress]
     public string Email { get; set; } = null!;
-
+    
     [Required]
     [DataType(DataType.Password)]
-    [Display(Name = "Пароль")]
     public string Password { get; set; } = null!;
-
-    [Display(Name = "Запомнить?")]
+    
+    [Display(Name = "Remember me")]
     public bool RememberMe { get; set; }
-         
-    public string ReturnUrl { get; set; } = null!;
+
+    public string ReturnUrl { get; set; }
+    
+    public IList<AuthenticationScheme> ExternalLogins { get; set; }
 }

@@ -1,0 +1,47 @@
+﻿<!-- Static navbar -->
+<div class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">STANLEY</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right nav-pills">
+                <li><a asp-controller="Home" asp-action="Work">Work</a></li>
+                <li><a asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-controller="Home" asp-action="Blog">Blog</a></li>
+                <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+
+                @if(User.Identity!.IsAuthenticated)
+                {
+                    <li><a asp-controller="Home" asp-action="Work" class="">@User.Identity.Name!.Split('@')[0]</a></li>
+                                                                                          
+                    <li>
+                        <form method="post" asp-controller="Auth" asp-action="Logout">
+                            <button type="submit" class="btn navbar-btn">Log out</button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <form method="get" asp-controller="Auth" asp-action="Login">
+                            <button type="submit" class="btn navbar-btn">Log in</button>
+                        </form>
+                    </li>
+
+                    <li>
+                        <form method="get" asp-controller="Auth" asp-action="Register">
+                            <button type="submit" class="btn navbar-btn">Register</button>
+                        </form>
+                    </li>
+                }
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>

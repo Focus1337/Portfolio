@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Entity;
 using Portfolio.ViewModels;
@@ -17,10 +19,8 @@ public class AuthController : Controller
     }
 
     [HttpGet]
-    public IActionResult Register()
-    {
-        return View();
-    }
+    public IActionResult Register() =>
+        View();
 
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel model)
@@ -48,37 +48,61 @@ public class AuthController : Controller
         return View(model);
     }
 
+    private static string RemovePrefixFromUrl(string url) =>
+        /* http://localhost:53773 only -> /Toys/Edit/1 */
+        new Regex(@"(.*):(\d*)").Replace(url, string.Empty);
 
     [HttpGet]
-    public IActionResult Login(string returnUrl = null)
+    public async Task<IActionResult> Login()
     {
-        return View(new LoginViewModel {ReturnUrl = returnUrl});
+        var url = Request.Headers["Referer"].ToString();
+        var returnUrl = RemovePrefixFromUrl(url);
+
+        // Clear the existing external cookie to ensure a clean login process
+        await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
+        return View(new LoginViewModel
+        {
+            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList(),
+            ReturnUrl = returnUrl
+        });
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
-        // if (ModelState.IsValid)
+        model.ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+        ModelState.Remove("ExternalLogins");
+        ModelState.Remove("ReturnUrl");
+        if (ModelState.IsValid)
         {
-            var result =
-                await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+            // This doesn't count login failures towards account lockout
+            // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+            var result = await _signInManager.PasswordSignInAsync(model.Email,
+                model.Password, model.RememberMe, false);
             if (result.Succeeded)
             {
-                // проверяем, принадлежит ли URL приложению
                 if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
-                {
                     return Redirect(model.ReturnUrl);
-                }
                 else
-                {
                     return RedirectToAction("Index", "Home");
-                }
+            }
+
+            if (result.RequiresTwoFactor)
+            {
+                Console.WriteLine("Account requires 2fa");
+                // return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+            }
+
+            if (result.IsLockedOut)
+            {
+                Console.WriteLine("Account is in lockout");
+                // return RedirectToPage("./Lockout");
             }
             else
-            {
-                ModelState.AddModelError("", "Неправильный логин и (или) пароль");
-            }
+                ModelState.AddModelError(string.Empty, "Invalid email or password.");
         }
 
         return View(model);
@@ -93,4 +117,8 @@ public class AuthController : Controller
         return RedirectToAction("Index", "Home");
     }
 
+    
+    // [HttpGet]
+    // public IActionResult Lockout() =>
+    //     View();
 }
