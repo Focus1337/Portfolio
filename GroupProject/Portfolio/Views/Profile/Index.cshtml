@@ -1,0 +1,47 @@
+﻿@using System.Security.Claims
+@{
+    var onlyName = User.Identity!.Name!.Split("@")[0];
+
+    ViewBag.Title = $"{onlyName} - Profile";
+    Layout = "_Layout";
+    
+    var roles = ((ClaimsIdentity)User.Identity!).Claims
+        .Where(c => c.Type == ClaimTypes.Role)
+        .Select(c => c.Value);
+}
+
+<div class="container">    
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 >User Profile</h4>
+                <a asp-controller="Profile" asp-action="Edit">Edit profile</a>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4 centered">
+                    <img alt="User Pic" src="img/user.png" id="profile-image1" class="img-circle img-responsive img-thumbnail">
+                </div>
+                    
+                <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+                    <div class="container" >
+                        <h2>John Doe</h2>
+                        <p>an
+                            @foreach(var e in roles)
+                            {
+                                <b>@e;</b>
+                            }
+                        </p>
+                        
+                    </div>
+                    <hr>
+                    <p><span class="glyphicon2 glyphicon glyphicon-user one"></span>@onlyName
+                    </p>
+                    <p><span class="glyphicon2 glyphicon glyphicon-envelope one"></span>@User.Identity.Name</p>
+                    <hr>
+                    <div class="col-sm-5 col-xs-6" >Date Of Joining: 15 Jun 2016</div>
+ 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

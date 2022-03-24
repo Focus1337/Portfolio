@@ -44,6 +44,16 @@ if (!app.Environment.IsDevelopment())
         .UseHsts();
 }
 
+app.Use(async (context, next) =>
+{
+    await next();
+    if (context.Response.StatusCode == 404)
+    {
+        context.Request.Path = "/Home/PageNotFound";
+        await next();
+    }
+});
+
 app
     .UseHttpsRedirection()
     .UseStaticFiles()

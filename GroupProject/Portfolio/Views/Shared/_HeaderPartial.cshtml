@@ -20,7 +20,7 @@
                 {
                     if (User.IsInRole("admin") || User.IsInRole("admin"))
                     {
-                        <li><a asp-controller="Admin" asp-action="Index" class="">Admin Panel</a></li>
+                        <li><a asp-controller="Users" asp-action="Index" class="">Admin Panel</a></li>
                     }
 
                     if (User.IsInRole("owner"))
@@ -30,7 +30,7 @@
 
                     if (User.IsInRole("user"))
                     {
-                        <li><a asp-controller="Users" asp-action="Index" class="">@User.Identity.Name!.Split('@')[0]</a></li>
+                        <li><a asp-controller="Profile" asp-action="Index" class=""><b>@User.Identity.Name!.Split('@')[0]</b></a></li>
                     }
                     
                     <li>

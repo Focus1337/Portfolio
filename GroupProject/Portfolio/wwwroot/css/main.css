@@ -94,6 +94,10 @@ hr {
   background-image: url("https://j.gifs.com/G65MKL.gif");
 }
 
+.z-depth-2 {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .1), 0 6px 20px 0 rgba(0, 0, 0, .1) !important;
+}
+
 .login-form {
   background-color: rgba(255, 255, 255, 1);
   opacity: 85%;
@@ -162,4 +166,10 @@ hr {
 .glyphicon {
   font-size: 40px;
   color: #1abc9c;
+}
+
+.glyphicon2 {
+  font-size: 20px;
+  color: #1abc9c;
+  width:50px;
 }
