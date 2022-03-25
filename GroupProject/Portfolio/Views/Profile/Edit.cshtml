@@ -1,6 +1,7 @@
-﻿@{
-    ViewBag.Title = "Edit - Profile";
-    Layout = "_Layout";
+﻿@model Portfolio.ViewModels.EditProfileViewModel
+@{
+  ViewBag.Title = "Edit - Profile";
+  Layout = "_Layout2";
 }
 
 <div class="container" style="padding-top: 60px;">
@@ -16,60 +17,88 @@
     </div>
     <!-- edit form column -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-      <div class="alert alert-info alert-dismissable">
-        <a class="panel-close close" data-dismiss="alert">×</a> 
-        <i class="fa fa-coffee"></i>
-        This is an <strong>.alert</strong>. Use this to show important messages to the user.
-      </div>
-      <h3>Personal info</h3>
       
-      <form class="form-horizontal" role="form">
+      <h3>Personal info</h3>
+      <form asp-controller="Profile" asp-action="Edit" method="post">
+        <div class="alert alert-info alert-dismissable" asp-validation-summary="ModelOnly">
+          <a class="panel-close close" data-dismiss="alert">×</a> 
+          <i class="fa fa-coffee"></i>
+        </div>
+
         <div class="form-group">
           <label class="col-lg-3 control-label">First name:</label>
           <div class="col-lg-8">
-            <input class="form-control" value="Jane" type="text">
+            <input asp-for="Name" type="text" class="form-control" value="@Model.Name" required>
           </div>
         </div>
+        
         <div class="form-group">
           <label class="col-lg-3 control-label">Last name:</label>
           <div class="col-lg-8">
-            <input class="form-control" value="Bishop" type="text">
+            <input asp-for="LastName" type="text" class="form-control" value="@Model.LastName" required>
           </div>
         </div>
+        
         <div class="form-group">
           <label class="col-lg-3 control-label">Email:</label>
           <div class="col-lg-8">
-            <input class="form-control" value="@User.Identity!.Name" type="text">
+            <input asp-for="Email" type="email" class="form-control" value="@Model.Email" required>
           </div>
         </div>
+        
         <div class="form-group">
           <label class="col-md-3 control-label">Username:</label>
           <div class="col-md-8">
-            <input class="form-control" value="@User.Identity!.Name!.Split('@')[0]" type="text" disabled>
+            <input class="form-control" value="@Model.Email.Split('@')[0]" type="text" disabled>
           </div>
         </div>
-        <div class="form-group">
-          <label class="col-md-3 control-label">Password:</label>
-          <div class="col-md-8">
-            <input class="form-control" value="11111122333" type="password">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-md-3 control-label">Confirm password:</label>
-          <div class="col-md-8">
-            <input class="form-control" value="11111122333" type="password">
-          </div>
-        </div>
+
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
-            <input class="btn btn-primary" value="Save Changes" type="button">
+            <div class="form-send">
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+            
             <span></span>
-            <input class="btn btn-default" value="Cancel" type="reset">
+            <div class="form-send">
+              <button type="reset" class="btn btn-default">Cancel</button>
+            </div>
           </div>
         </div>
       </form>
       
+      <h3>Security</h3>
+      <form asp-controller="Profile" asp-action="ChangePassword" method="post">
+        <div class="form-group">
+          <label class="col-md-3 control-label">Old Password:</label>
+          <div class="col-md-8">
+            <input asp-for="OldPassword" class="form-control" type="password" placeholder="Enter old password" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-md-3 control-label">New Password:</label>
+          <div class="col-md-8">
+            <input asp-for="NewPassword" class="form-control" type="password" placeholder="Enter new password" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <div class="form-send">
+              <button type="submit" class="btn btn-primary">Change</button>
+            </div>
+                  
+            <span></span>
+            <div class="form-send">
+              <button type="reset" class="btn btn-default">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
     </div>
   </div>
 </div>

@@ -4,5 +4,7 @@ namespace Portfolio.Entity;
 
 public class User : IdentityUser
 {
-    // public int Year { get; set; }
+    public string Name { get; set; } = null!;
+    public string LastName { get; set; } = null!;
+    public DateTime RegisterDate { get; set; }
 }

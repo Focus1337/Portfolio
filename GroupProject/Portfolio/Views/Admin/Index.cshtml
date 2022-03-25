@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Portfolio.Entity.User>
+@{
+    ViewBag.Title = "Users - ADMIN";
+    var counter = 0;
+    Layout = "_Layout2";
+}
+
+<div class="container">
+    <div class="row mt">
+        <div class="col-lg-6 col-lg-offset-3 centered">
+            <h3>User list</h3>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <a asp-controller="Admin" asp-action="Create" class="btn btn-sm btn-primary pull-left">
+                                <i class="glyphicon glyphicon3 glyphicon-plus-sign"></i> Add user
+                            </a>
+                            @if (User.IsInRole("owner"))
+                            {
+                                <a asp-controller="Roles" asp-action="Index" class="btn btn-sm btn-primary pull-right">
+                                    <i class="glyphicon glyphicon3 glyphicon-check"></i> Role list
+                                </a>
+                            }
+                                               
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                                <th>View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@(counter++)</td>
+                                <td>@user.Email</td>
+                                <td>
+                                    <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                                        <a class="btn btn-sm btn-primary" asp-controller="Admin" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+                                        <a class="btn btn-sm btn-primary" asp-action="ChangePassword" asp-route-id="@user.Id">Change pass</a>
+                                        @if (User.IsInRole("owner"))
+                                        {
+                                            <a class="btn btn-sm btn-primary" asp-controller="Roles" asp-action="Edit" asp-route-userid="@user.Id">Roles</a>
+                                        }
+                                        <button type="submit" class="btn btn-sm btn-danger">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <a asp-controller="Profile" asp-action="Users" asp-route-id="@user.Id" class="btn btn-sm btn-success">
+                                        <i class="glyphicon glyphicon3 glyphicon-search"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

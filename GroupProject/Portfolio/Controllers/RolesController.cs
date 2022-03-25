@@ -18,8 +18,10 @@ public class RolesController : Controller
         _userManager = userManager;
     }
 
-    public IActionResult Index() => View(_roleManager.Roles.ToList());
+    public IActionResult Index() => 
+        View(_roleManager.Roles.ToList());
 
+    [HttpGet]
     public IActionResult Create() => View();
 
     [HttpPost]
@@ -27,18 +29,12 @@ public class RolesController : Controller
     {
         if (!string.IsNullOrEmpty(name))
         {
-            IdentityResult result = await _roleManager.CreateAsync(new IdentityRole(name));
+            var result = await _roleManager.CreateAsync(new IdentityRole(name));
             if (result.Succeeded)
-            {
                 return RedirectToAction("Index");
-            }
             else
-            {
                 foreach (var error in result.Errors)
-                {
                     ModelState.AddModelError(string.Empty, error.Description);
-                }
-            }
         }
 
         return View(name);
@@ -56,12 +52,11 @@ public class RolesController : Controller
         return RedirectToAction("Index");
     }
 
-    public IActionResult UserList() => View(_userManager.Users.ToList());
-
     public async Task<IActionResult> Edit(string userId)
     {
         // получаем пользователя
         var user = await _userManager.FindByIdAsync(userId);
+        
         if (user != null)
         {
             // получем список ролей пользователя
@@ -85,7 +80,7 @@ public class RolesController : Controller
     public async Task<IActionResult> Edit(string userId, List<string> roles)
     {
         // получаем пользователя
-        User user = await _userManager.FindByIdAsync(userId);
+        var user = await _userManager.FindByIdAsync(userId);
         if (user != null)
         {
             // получем список ролей пользователя
@@ -101,7 +96,7 @@ public class RolesController : Controller
 
             await _userManager.RemoveFromRolesAsync(user, removedRoles);
 
-            return RedirectToAction("UserList");
+            return RedirectToAction("Index", "Admin");
         }
 
         return NotFound();

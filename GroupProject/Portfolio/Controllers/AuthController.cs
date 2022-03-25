@@ -27,7 +27,11 @@ public class AuthController : Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new User {Email = model.Email, UserName = model.Email};
+            var user = new User
+            {
+                Email = model.Email, UserName = model.Email, Name = "John", LastName = "Doe",
+                RegisterDate = DateTime.Now
+            };
             // добавляем пользователя
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)

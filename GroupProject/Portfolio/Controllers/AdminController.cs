@@ -7,11 +7,11 @@ using Portfolio.ViewModels;
 namespace Portfolio.Controllers;
 
 [Authorize(Roles = "admin, moderator")]
-public class UsersController : Controller
+public class AdminController : Controller
 {
     private readonly UserManager<User> _userManager;
 
-    public UsersController(UserManager<User> userManager) =>
+    public AdminController(UserManager<User> userManager) =>
         _userManager = userManager;
 
     public IActionResult Index() =>
@@ -28,16 +28,10 @@ public class UsersController : Controller
             var user = new User {Email = model.Email, UserName = model.Email};
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
-            {
                 return RedirectToAction("Index");
-            }
             else
-            {
                 foreach (var error in result.Errors)
-                {
                     ModelState.AddModelError(string.Empty, error.Description);
-                }
-            }
         }
 
         return View(model);
@@ -116,7 +110,7 @@ public class UsersController : Controller
                         ModelState.AddModelError(string.Empty, error.Description);
             }
             else
-                ModelState.AddModelError(string.Empty, "Пользователь не найден");
+                ModelState.AddModelError(string.Empty, "User not found");
         }
 
         return View(model);

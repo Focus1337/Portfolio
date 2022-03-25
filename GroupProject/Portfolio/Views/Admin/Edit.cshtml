@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Edit user - ADMIN";
 }
-<form asp-action="Edit" asp-controller="Users">
+<form asp-action="Edit" asp-controller="Admin">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
         <input type="hidden" asp-for="Id" />
@@ -12,6 +12,6 @@
         <input type="text" asp-for="Email" class="form-control" />
     </div>
     <div class="form-group">
-        <input type="submit" value="Сохранить" class="btn btn-outline-secondary" />
+        <input type="submit" value="Save" class="btn btn-outline-secondary" />
     </div>
 </form>
