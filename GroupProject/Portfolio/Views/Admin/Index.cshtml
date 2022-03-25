@@ -55,9 +55,12 @@
                                         {
                                             <a class="btn btn-sm btn-primary" asp-controller="Roles" asp-action="Edit" asp-route-userid="@user.Id">Roles</a>
                                         }
-                                        <button type="submit" class="btn btn-sm btn-danger">
-                                            Delete
-                                        </button>
+                                        @if (User.IsInRole("admin"))
+                                        {
+                                            <button type="submit" class="btn btn-sm btn-danger">
+                                                Delete
+                                            </button>
+                                        }
                                     </form>
                                 </td>
                                 <td>

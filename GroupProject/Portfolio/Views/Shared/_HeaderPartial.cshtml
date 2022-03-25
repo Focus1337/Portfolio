@@ -18,7 +18,7 @@
 
                 @if(User.Identity!.IsAuthenticated)
                 {
-                    if (User.IsInRole("admin") || User.IsInRole("admin"))
+                    if (User.IsInRole("admin") || User.IsInRole("moderator"))
                     {
                         <li><a asp-controller="Admin" asp-action="Index" class=""><b>Admin Panel</b></a></li>
                     }

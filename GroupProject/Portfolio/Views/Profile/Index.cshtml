@@ -26,13 +26,11 @@
                 <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
                     <div class="container" >
                         <h2>@Model.Name @Model.LastName</h2>
-                        <p>an
-                            @foreach(var e in roles)
-                            {
-                                <b>@e;</b>
-                            }
-                        </p>
-                        
+                        @foreach(var role in roles)
+                        {
+                            <span class="badge"><b>@role</b></span>
+                        }
+                            
                     </div>
                     <hr>
                     <p><span class="glyphicon2 glyphicon glyphicon-user one"></span>@onlyName
