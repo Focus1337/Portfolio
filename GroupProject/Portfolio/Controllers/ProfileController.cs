@@ -60,7 +60,7 @@ public class ProfileController : Controller
                     await _signInManager.SignOutAsync();
                     ModelState.AddModelError(string.Empty, "You will be logged out!");
                 }
-                
+
                 user.Name = model.Name;
                 user.LastName = model.LastName;
 
@@ -97,7 +97,7 @@ public class ProfileController : Controller
                     Email = user.Email, Name = user.Name, LastName = user.LastName, OldPassword = string.Empty,
                     NewPassword = string.Empty
                 };
-                
+
                 if (result.Succeeded)
                     ModelState.AddModelError(string.Empty, "Password updated successfully!");
                 else
@@ -110,8 +110,20 @@ public class ProfileController : Controller
 
         return View("Edit", model);
     }
-    
+
     [HttpGet]
-    public  IActionResult Users(User user) => 
-        View(user);
+    public async Task<IActionResult> Users(string userId)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+
+        if (user != null)
+        {
+            ViewBag.Roles = await _userManager.GetRolesAsync(user);
+            ViewBag.User = user;
+
+            return View();
+        }
+
+        return RedirectToAction("PageNotFound", "Home");
+    }
 }

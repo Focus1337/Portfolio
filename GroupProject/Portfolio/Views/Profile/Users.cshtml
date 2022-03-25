@@ -1,14 +1,11 @@
-﻿@model Portfolio.Entity.User
-@using System.Security.Claims
+﻿@using Portfolio.Entity
+@model dynamic
 @{
-    var onlyName = User.Identity!.Name!.Split("@")[0];
+    var user = (User)ViewBag.User;
+    var onlyName = user.Email.Split("@")[0];
 
     ViewBag.Title = $"{onlyName} - Profile";
     Layout = "_Layout2";
-    
-    var roles = ((ClaimsIdentity)User.Identity!).Claims
-        .Where(c => c.Type == ClaimTypes.Role)
-        .Select(c => c.Value);
 }
 
 <div class="container">    
@@ -19,16 +16,16 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4 centered">
-                    <img alt="User Pic" src="img/user.png" id="profile-image1" class="img-circle img-responsive img-thumbnail">
+                    <img alt="User Pic" src="~/img/user.png" id="profile-image1" class="img-circle img-responsive img-thumbnail">
                 </div>
                     
                 <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
                     <div class="container" >
-                        <h2>@Model.Name @Model.LastName</h2>
+                        <h2>@user.Name @user.LastName</h2>
                         <p>an
-                            @foreach(var e in roles)
+                            @foreach(var role in (IList<string>)ViewBag.Roles)
                             {
-                                <b>@e;</b>
+                                <b>@role;</b>
                             }
                         </p>
                         
@@ -36,9 +33,9 @@
                     <hr>
                     <p><span class="glyphicon2 glyphicon glyphicon-user one"></span>@onlyName
                     </p>
-                    <p><span class="glyphicon2 glyphicon glyphicon-envelope one"></span>@User.Identity.Name</p>
+                    <p><span class="glyphicon2 glyphicon glyphicon-envelope one"></span>@user.Email</p>
                     <hr>
-                    <div class="col-sm-5 col-xs-6" >Date Of Joining: @Model.RegisterDate.ToString("d")</div>
+                    <div class="col-sm-5 col-xs-6" >Date Of Joining: @user.RegisterDate.ToString("d")</div>
  
                 </div>
             </div>

@@ -1,6 +1,7 @@
 ﻿@model Portfolio.ViewModels.CreateUserViewModel
 @{
     ViewBag.Title = "Add user - ADMIN";
+    Layout = "_Layout2";
 }
 <form asp-action="Create" asp-controller="Admin">
     <div asp-validation-summary="All" class="text-danger"></div>
