@@ -12,6 +12,7 @@ public class AdminController : Controller
 {
     private readonly UserManager<User> _userManager;
     private readonly ILogger<AdminController> _logger;
+
     public AdminController(UserManager<User> userManager, ILogger<AdminController> logger)
     {
         _userManager = userManager;
@@ -40,10 +41,10 @@ public class AdminController : Controller
             if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(user, "user");
-                
+
                 _logger.LogInformation("admin \"{Admin}\" created new user - {User}",
                     User.Identity!.Name, JsonConvert.SerializeObject(user.UserName));
-                
+
                 return RedirectToAction("Index");
             }
             else
@@ -83,7 +84,7 @@ public class AdminController : Controller
                     _logger.LogInformation("admin \"{Admin}\" edited user - {User} | New email: {New}",
                         User.Identity!.Name, JsonConvert.SerializeObject(oldEmail),
                         JsonConvert.SerializeObject(user.UserName));
-                    
+
                     return RedirectToAction("Index");
                 }
                 else
@@ -135,7 +136,7 @@ public class AdminController : Controller
                 {
                     _logger.LogInformation("admin \"{Admin}\" changed password for user - {User}",
                         User.Identity!.Name, JsonConvert.SerializeObject(user.UserName));
-                    
+
                     return RedirectToAction("Index");
                 }
                 else
