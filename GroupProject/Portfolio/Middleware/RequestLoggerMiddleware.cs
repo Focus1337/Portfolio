@@ -3,31 +3,37 @@
 public class RequestLoggerMiddleware
 {
     private readonly RequestDelegate _next;
-
-    public RequestLoggerMiddleware(RequestDelegate next) =>
-        _next = next;
+    private readonly ILogger _logger;
     
+    public RequestLoggerMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
+    {
+        _next = next;
+        _logger = loggerFactory.CreateLogger<RequestLoggerMiddleware>();
+    }
+
     public async Task InvokeAsync(HttpContext context)
     {
-        Console.WriteLine("\n");
-        Console.WriteLine($"OS: {GetUserPlatform(context)}");
-        Console.WriteLine($"Browser: {GetUserBrowser(context)}");
-        Console.WriteLine($"Method: {context.Request.Method}");
-        Console.WriteLine($"Ip address: {context.Connection.RemoteIpAddress?.MapToIPv4()}");
-        
-        context.Request.Headers.TryGetValue("Accept", out var contentType);
-        Console.WriteLine($"Content type: {contentType}");
-        Console.WriteLine($"Protocol: {context.Request.Protocol}");
+        try
+        {
+            await _next(context);
+        }
+        finally
+        {
+            context.Request.Headers.TryGetValue("Accept", out var contentType);
 
-        // using (var reader = new StreamReader(context.Request.Body))
-        // {
-        //     var body = await reader.ReadToEndAsync();
-        //     Console.WriteLine($"Body: {body}");
-        // }
+            _logger.LogInformation(
+                "OS: {OS} | Browser: {Browser} | Method: {Method}| Ip address: {Ip address} | Content type: {ContentType} | Protocol: {Protocol}",
+                GetUserPlatform(context), GetUserBrowser(context), context.Request.Method,
+                context.Connection.RemoteIpAddress?.MapToIPv4(), contentType, context.Request.Protocol);
 
-        Console.WriteLine($"Query: {context.Request.QueryString.Value}");
+            // using (var reader = new StreamReader(context.Request.Body))
+            // {
+            //     var body = await reader.ReadToEndAsync();
+            //     Console.WriteLine($"Body: {body}");
+            // }
 
-        await _next.Invoke(context);
+            Console.WriteLine($"Query: {context.Request.QueryString.Value}");
+        }
     }
 
     private static string GetUserPlatform(HttpContext context)

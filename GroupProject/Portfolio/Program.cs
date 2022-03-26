@@ -6,6 +6,7 @@ using Portfolio.Misc.Services.EmailSender;
 
 using NLog;
 using NLog.Web;
+using Portfolio.Middleware;
 
 var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Debug("init main");
@@ -79,9 +80,9 @@ try
     app.UseAuthentication();
     app.UseAuthorization();
 
-// app
-// .UseMiddleware<ContactMiddleware>()
-// .UseMiddleware<RequestLoggerMiddleware>();
+    // app
+    //     .UseMiddleware<ContactMiddleware>()
+    //     .UseMiddleware<RequestLoggerMiddleware>();
 
     app.MapControllerRoute(
         name: "default",

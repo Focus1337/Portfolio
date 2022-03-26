@@ -5,18 +5,26 @@ namespace Portfolio.Middleware;
 public class ContactMiddleware
 {
     private readonly RequestDelegate _next;
+    private readonly ILogger _logger;
 
-    public ContactMiddleware(RequestDelegate next) =>
+    public ContactMiddleware(RequestDelegate next, ILoggerFactory loggerFactory)
+    {
         _next = next;
+        _logger = loggerFactory.CreateLogger<ContactMiddleware>();
+    }
 
     public async Task InvokeAsync(HttpContext context, ApplicationContext applicationContext)
     {
-        Console.WriteLine("\nRequest list:");
-        foreach (var e in applicationContext.Requests)
-            Console.WriteLine(
-                $"Guid: {e.Id} | Name: {e.Name} | Email: {e.Email}| Subject: {e.Subject} | Message: {e.Message}");
-        Console.WriteLine("\n");
-
-        await _next.Invoke(context);
+        try
+        {
+            await _next(context);
+        }
+        finally
+        {
+            foreach (var e in applicationContext.Requests)
+                _logger.LogInformation(
+                    "Request list: Guid: {Id} | Name: {Name} | Email: {Email}| Subject: {Subject} | Message: {Message}",
+                    e.Id, e.Name, e.Email, e.Subject, e.Message);
+        }
     }
 }
