@@ -11,11 +11,14 @@ public class ProfileController : Controller
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
+    private readonly ILogger<ProfileController> _logger;
 
-    public ProfileController(UserManager<User> userManager, SignInManager<User> signInManager)
+    public ProfileController(UserManager<User> userManager, SignInManager<User> signInManager,
+        ILogger<ProfileController> logger)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _logger = logger;
     }
 
     [HttpGet]
@@ -53,6 +56,7 @@ public class ProfileController : Controller
 
             if (user != null)
             {
+                var oldEmail = user.Email;
                 if (user.Email != model.Email)
                 {
                     user.Email = model.Email;
@@ -66,7 +70,11 @@ public class ProfileController : Controller
 
                 var result = await _userManager.UpdateAsync(user);
                 if (result.Succeeded)
+                {
                     ModelState.AddModelError(string.Empty, "Changes are saved successfully!");
+                    _logger.LogInformation("User \"{User}\" edited personal info ({Email}, {Name}, {LastName})",
+                        oldEmail, user.Email, user.Name, user.LastName);
+                }
                 else
                     foreach (var error in result.Errors)
                         ModelState.AddModelError(string.Empty, error.Description);
@@ -99,7 +107,10 @@ public class ProfileController : Controller
                 };
 
                 if (result.Succeeded)
+                {
                     ModelState.AddModelError(string.Empty, "Password updated successfully!");
+                    _logger.LogInformation("User \"{User}\" changed his password", model.Email);
+                }
                 else
                     foreach (var error in result.Errors)
                         ModelState.AddModelError(string.Empty, error.Description);

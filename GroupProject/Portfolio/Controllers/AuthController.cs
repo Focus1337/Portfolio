@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Portfolio.Entity;
 using Portfolio.ViewModels;
 
@@ -11,11 +12,14 @@ public class AuthController : Controller
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
+    private readonly ILogger<AuthController> _logger;
 
-    public AuthController(UserManager<User> userManager, SignInManager<User> signInManager)
+    public AuthController(UserManager<User> userManager, SignInManager<User> signInManager,
+        ILogger<AuthController> logger)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _logger = logger;
     }
 
     [HttpGet]
@@ -39,6 +43,8 @@ public class AuthController : Controller
                 await _userManager.AddToRoleAsync(user, "user");
                 // установка куки
                 await _signInManager.SignInAsync(user, false);
+
+                _logger.LogInformation(" New user registered - \"{User}\"", model.Email);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -90,6 +96,9 @@ public class AuthController : Controller
                 model.Password, model.RememberMe, false);
             if (result.Succeeded)
             {
+                _logger.LogInformation("User \"{User}\" logged in | IP: {Ip}", model.Email,
+                    Request.HttpContext.Connection.RemoteIpAddress);
+                
                 if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     return Redirect(model.ReturnUrl);
                 else
@@ -120,6 +129,9 @@ public class AuthController : Controller
     {
         // удаляем аутентификационные куки
         await _signInManager.SignOutAsync();
+
+        _logger.LogInformation("User \"{User}\" logged out", User.Identity!.Name);
+        
         return RedirectToAction("Index", "Home");
     }
 

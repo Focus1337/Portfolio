@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Portfolio.Entity;
 using Portfolio.ViewModels;
 
@@ -10,9 +11,12 @@ namespace Portfolio.Controllers;
 public class AdminController : Controller
 {
     private readonly UserManager<User> _userManager;
-
-    public AdminController(UserManager<User> userManager) =>
+    private readonly ILogger<AdminController> _logger;
+    public AdminController(UserManager<User> userManager, ILogger<AdminController> logger)
+    {
         _userManager = userManager;
+        _logger = logger;
+    }
 
     public IActionResult Index() =>
         View(_userManager.Users.ToList());
@@ -25,10 +29,23 @@ public class AdminController : Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new User {Email = model.Email, UserName = model.Email};
+            var user = new User
+            {
+                Email = model.Email, UserName = model.Email, Name = model.Name, LastName = model.LastName,
+                RegisterDate = DateTime.Now
+            };
+
             var result = await _userManager.CreateAsync(user, model.Password);
+
             if (result.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(user, "user");
+                
+                _logger.LogInformation("admin \"{Admin}\" created new user - {User}",
+                    User.Identity!.Name, JsonConvert.SerializeObject(user.UserName));
+                
                 return RedirectToAction("Index");
+            }
             else
                 foreach (var error in result.Errors)
                     ModelState.AddModelError(string.Empty, error.Description);
@@ -56,12 +73,19 @@ public class AdminController : Controller
 
             if (user != null)
             {
+                var oldEmail = user.Email;
                 user.Email = model.Email;
                 user.UserName = model.Email;
 
                 var result = await _userManager.UpdateAsync(user);
                 if (result.Succeeded)
+                {
+                    _logger.LogInformation("admin \"{Admin}\" edited user - {User} | New email: {New}",
+                        User.Identity!.Name, JsonConvert.SerializeObject(oldEmail),
+                        JsonConvert.SerializeObject(user.UserName));
+                    
                     return RedirectToAction("Index");
+                }
                 else
                     foreach (var error in result.Errors)
                         ModelState.AddModelError(string.Empty, error.Description);
@@ -78,6 +102,10 @@ public class AdminController : Controller
         if (user != null)
         {
             var result = await _userManager.DeleteAsync(user);
+
+            if (result.Succeeded)
+                _logger.LogInformation("admin \"{Admin}\" deleted user - {User}",
+                    User.Identity!.Name, JsonConvert.SerializeObject(user.UserName));
         }
 
         return RedirectToAction("Index");
@@ -104,7 +132,12 @@ public class AdminController : Controller
                 var result =
                     await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
                 if (result.Succeeded)
+                {
+                    _logger.LogInformation("admin \"{Admin}\" changed password for user - {User}",
+                        User.Identity!.Name, JsonConvert.SerializeObject(user.UserName));
+                    
                     return RedirectToAction("Index");
+                }
                 else
                     foreach (var error in result.Errors)
                         ModelState.AddModelError(string.Empty, error.Description);

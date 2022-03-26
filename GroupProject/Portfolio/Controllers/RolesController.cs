@@ -11,14 +11,17 @@ public class RolesController : Controller
 {
     private readonly RoleManager<IdentityRole> _roleManager;
     private readonly UserManager<User> _userManager;
+    private readonly ILogger<RolesController> _logger;
 
-    public RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
+    public RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager,
+        ILogger<RolesController> logger)
     {
         _roleManager = roleManager;
         _userManager = userManager;
+        _logger = logger;
     }
 
-    public IActionResult Index() => 
+    public IActionResult Index() =>
         View(_roleManager.Roles.ToList());
 
     [HttpGet]
@@ -31,7 +34,10 @@ public class RolesController : Controller
         {
             var result = await _roleManager.CreateAsync(new IdentityRole(name));
             if (result.Succeeded)
+            {
+                _logger.LogInformation("Owner \"{Owner}\" added new role - {Role}", User.Identity!.Name, name);
                 return RedirectToAction("Index");
+            }
             else
                 foreach (var error in result.Errors)
                     ModelState.AddModelError(string.Empty, error.Description);
@@ -47,6 +53,10 @@ public class RolesController : Controller
         if (role != null)
         {
             var result = await _roleManager.DeleteAsync(role);
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("Owner \"{Owner}\" deleted role - {Role}", User.Identity!.Name, role.Name);
+            }
         }
 
         return RedirectToAction("Index");
@@ -56,13 +66,13 @@ public class RolesController : Controller
     {
         // получаем пользователя
         var user = await _userManager.FindByIdAsync(userId);
-        
+
         if (user != null)
         {
             // получем список ролей пользователя
             var userRoles = await _userManager.GetRolesAsync(user);
             var allRoles = _roleManager.Roles.ToList();
-            
+
             var model = new ChangeRoleViewModel
             {
                 UserId = user.Id,
@@ -92,9 +102,21 @@ public class RolesController : Controller
             // получаем роли, которые были удалены
             var removedRoles = userRoles.Except(roles);
 
-            await _userManager.AddToRolesAsync(user, addedRoles);
+            var result = await _userManager.AddToRolesAsync(user, addedRoles);
+            if (result.Succeeded)
+            {
+                _logger.LogInformation(
+                    "Owner \"{Owner}\" changed role for user - {User} (added: {Added})",
+                    User.Identity!.Name, user.Email, addedRoles);
+            }
 
-            await _userManager.RemoveFromRolesAsync(user, removedRoles);
+            result = await _userManager.RemoveFromRolesAsync(user, removedRoles);
+            if (result.Succeeded)
+            {
+                _logger.LogInformation(
+                    "Owner \"{Owner}\" changed role for user - {User} (removed: {Removed})",
+                    User.Identity!.Name, user.Email, removedRoles);
+            }
 
             return RedirectToAction("Index", "Admin");
         }

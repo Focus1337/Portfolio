@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Portfolio.DataAccess.Repository;
 using Portfolio.Entity;
 using Portfolio.Misc.Services.EmailSender;
@@ -12,12 +13,15 @@ public class ContactController : Controller
     private readonly IEmailService _emailService;
     private readonly EmailConfiguration _emailConfig;
     private readonly ApplicationContext _context;
+    private readonly ILogger<ContactController> _logger;
 
-    public ContactController(IEmailService emailService, EmailConfiguration emailConfig, ApplicationContext context)
+    public ContactController(IEmailService emailService, EmailConfiguration emailConfig, ApplicationContext context,
+        ILogger<ContactController> logger)
     {
         _emailService = emailService;
         _emailConfig = emailConfig;
         _context = context;
+        _logger = logger;
     }
 
     [HttpGet]
@@ -48,10 +52,14 @@ public class ContactController : Controller
                 _context.SaveChanges();
 
                 ModelState.AddModelError("", "Mail sent successfully!");
+
+                _logger.LogInformation("User \"{User}\" sent mail | Subject: {Subject}", User.Identity!.Name,
+                    model.Subject);
             }
-            catch (MailKit.Net.Smtp.SmtpProtocolException)
+            catch (MailKit.Net.Smtp.SmtpProtocolException ex)
             {
                 ModelState.AddModelError("", "Mail service currently doesn't work. Try later.");
+                _logger.LogWarning(ex, "User \"{User}\" failed to send a mail", User.Identity!.Name);
             }
         }
 
