@@ -31,7 +31,8 @@ try
         .AddScoped<IEmailService, EmailService>();
 
     services.AddDbContext<ApplicationContext>(opts =>
-        opts.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection")));
+        opts.UseNpgsql(builder.Configuration.GetConnectionString("sqlConnection")));
+    AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
     services.AddIdentity<User, IdentityRole>(opts =>
         {

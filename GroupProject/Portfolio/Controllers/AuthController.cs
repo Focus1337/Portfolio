@@ -36,12 +36,12 @@ public class AuthController : Controller
                 Email = model.Email, UserName = model.Email, Name = "John", LastName = "Doe",
                 RegisterDate = DateTime.Now
             };
-            // добавляем пользователя
+            
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(user, "user");
-                // установка куки
+                
                 await _signInManager.SignInAsync(user, false);
 
                 _logger.LogInformation(" New user registered - \"{User}\"", model.Email);
