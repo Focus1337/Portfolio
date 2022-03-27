@@ -2,7 +2,7 @@
 
 public class Post
 {
-    public string PostId { get; set; } = null!;
+    public Guid Id { get; set; }
     public DateTime Date { get; set; }
     public string Title { get; set; } = null!;
     public string Text { get; set; } = null!;

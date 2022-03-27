@@ -1,7 +1,7 @@
-﻿@model dynamic
+﻿@model Portfolio.Entity.Post
 
 @{
-  ViewBag.Title = "Blog detail";
+  ViewBag.Title = $"{Model.Title} - Post";
   Layout = "_Layout";
 }
 
@@ -10,23 +10,27 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
-        <p><img src="img/user.png" width="50px" height="50px">
-          <ba>Stanley Stinson</ba>
+        <p>
+          <img src="~/img/user.png" width="50px" height="50px" alt="">
+          <ba><a asp-controller="Profile" asp-action="Users" asp-route-userId="@Model.AuthorId">@Model.Author.Name @Model.Author.LastName</a></ba>
         </p>
         <p>
-          <bd>January 3, 2014</bd>
+          <bd>@Model.Date.ToString("d")</bd>
         </p>
-        <h4>An Image Post</h4>
+        <h4>@Model.Title</h4>
         <p><img class="img-responsive" src="img/blog01.jpg" alt=""></p>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-        <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        @Html.Raw(Model.Text)
         <br>
         <p>
-          <bt>TAGS: <a href="#">Wordpress</a> - <a href="#">Web Design</a></bt>
+          <bt>TAGS: 
+            @foreach (var tag in Model.Tags)
+            {
+              <a class="badge" href="#"><b>@tag.Name</b></a>
+            }
+          </bt>
         </p>
         <hr>
-        <p><a href="blog.html"># Back</a></p>
+        <p><a asp-action="Index"># Back</a></p>
       </div>
 
     </div>

@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Update="nlog.config" CopyToOutputDirectory="PreserveNewest" />
+        <Content Update="NLog.config" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
     <ItemGroup>

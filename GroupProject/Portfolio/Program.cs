@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Portfolio.DataAccess.Repository;
 using Portfolio.Entity;
 using Portfolio.Misc.Services.EmailSender;
-
 using NLog;
 using NLog.Web;
 using Portfolio.Middleware;
@@ -13,7 +12,6 @@ logger.Debug("init main");
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
-
 
 try
 {
@@ -33,7 +31,7 @@ try
     services.AddDbContext<ApplicationContext>(opts =>
         opts.UseNpgsql(builder.Configuration.GetConnectionString("sqlConnection")));
     AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-
+    
     services.AddIdentity<User, IdentityRole>(opts =>
         {
             opts.Password.RequiredLength = 6;
@@ -88,6 +86,23 @@ try
     app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+    // Seed database
+    using (var scope = app.Services.CreateScope())
+    {
+        var serviceProvider = scope.ServiceProvider;
+        try
+        {
+            var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
+            var rolesManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            await DbInitializer.InitializeAsync(userManager, rolesManager);
+        }
+        catch (Exception ex)
+        {
+            logger.Error(ex, "An error occurred while seeding the database.");
+        }
+    }
 
     app.Run();
 

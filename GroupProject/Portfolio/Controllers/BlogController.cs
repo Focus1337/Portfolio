@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.DataAccess.Repository;
 using Portfolio.Entity;
 using Portfolio.ViewModels;
 
 namespace Portfolio.Controllers;
 
-[Authorize(Roles = "user")]
 public class BlogController : Controller
 {
     private readonly ILogger<BlogController> _logger;
@@ -21,33 +21,49 @@ public class BlogController : Controller
         _context = context;
     }
 
-    public IActionResult Index() => View();
+    public async Task<IActionResult> Index() =>
+        View(await _context.Posts
+            .OrderByDescending(date => date.Date)
+            .Include(x => x.Author)
+            .Include(x => x.Tags)
+            .ToListAsync());
 
-    public IActionResult Detail() => View();
+    [HttpGet]
+    public async Task<IActionResult> Detail(Guid postId) =>
+        View(await _context.Posts
+            .Include(x => x.Author)
+            .Include(x => x.Tags)
+            .FirstOrDefaultAsync(post => post.Id == postId));
 
+    [Authorize(Roles = "user")]
     [HttpGet]
     public IActionResult Add() =>
         View();
 
+    [Authorize(Roles = "user")]
     [HttpPost]
     public async Task<IActionResult> Add(AddBlogViewModel model)
     {
         if (ModelState.IsValid)
         {
-            var user = await _userManager.FindByIdAsync(User.Identity!.Name);
+            var user = await _userManager.FindByNameAsync(User.Identity!.Name);
             if (user == null)
                 return NotFound();
-            
+
+            var tagList = (from tag in model.Tags.Split(';')
+                where tag != ""
+                select new Tag {Id = Guid.NewGuid(), Name = tag}).ToList();
+
             _context.Posts.Add(new Post
             {
-                Title = model.Title, Text = model.Text, Tags = model.Tags, Author = user, AuthorId = user.Id,
+                Title = model.Title, Text = model.Text, Tags = tagList, Author = user, AuthorId = user.Id,
                 Date = DateTime.Now
             });
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
-            ModelState.AddModelError("", "Mail sent successfully!");
+            ModelState.AddModelError("", "Posted successfully!");
 
-            _logger.LogInformation("User \"{User}\" added new blog - {Blog}", User.Identity!.Name,
+            _logger.LogInformation("User \"{User}\" added new post - {Blog}", User.Identity!.Name,
                 model.Title);
         }
 

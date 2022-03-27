@@ -1,81 +1,66 @@
-﻿@model dynamic
+﻿@model IEnumerable<Portfolio.Entity.Post>
 
 @{
   ViewBag.Title = "Blog";
   Layout = "_Layout";
+
+  var color = false;
 }
 
-<!-- +++++ Posts Lists +++++ -->
-<!-- +++++ First Post +++++ -->
-<div id="grey">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
-        <p>
-          <img src="~/img/user.png" width="50px" height="50px" alt="">
-          <ba>Stanley Stinson</ba>
-        </p>
-        <p>
-          <bd>January 18, 2014</bd>
-        </p>
-        <h4>The Amazing Spiderman</h4>
-        <p><b>Spider-Man</b> is a fictional character, a comic book superhero that appears in comic books published by Marvel Comics. Created by writer-editor Stan Lee and writer-artist Steve Ditko, he first appeared in Amazing Fantasy #15 (cover-dated
-          Aug. 1962). </p>
-        <p>Lee and Ditko conceived the character as an orphan being raised by his Aunt May and Uncle Ben, and as a teenager, having to deal with the normal struggles of adolescence in addition to those of a costumed crimefighter.</p>
-        <p><a href="blog01.html">Continue Reading...</a></p>
-      </div>
-
+@if (User.IsInRole("user"))
+{
+  <div class="row mt">
+    <div class="col-lg-6 col-lg-offset-3 centered">
+      <h3><a asp-controller="Blog" asp-action="Add">Add new post</a></h3>
     </div>
-    <!-- /row -->
   </div>
-  <!-- /container -->
-</div>
-<!-- /grey -->
+}
 
-<!-- +++++ Second Post +++++ -->
-<div id="white">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
-        <p>
-          <img src="~/img/user.png" width="50px" height="50px" alt="">
-          <ba>Stanley Stinson</ba>
-        </p>
-        <p>
-          <bd>January 3, 2014</bd>
-        </p>
-        <h4>An Image Post</h4>
-        <p><img class="img-responsive" src="~/img/blog01.jpg" alt=""></p>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        <p><a href="blog01.html">Continue Reading...</a></p>
+@if (Model.Any())
+{
+  foreach (var post in Model)
+  {
+    {
+      color = !color;
+    }
+    <!-- +++++ Posts Lists +++++ -->
+    <div id="@(color ? "grey" : "white")">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <p>
+              <img src="~/img/user.png" width="50px" height="50px" alt="">
+              <ba><a asp-controller="Profile" asp-action="Users" asp-route-userId="@post.AuthorId">@post.Author.Name @post.Author.LastName</a></ba>
+            </p>
+            <p>
+              <bd>@post.Date.ToString("d")</bd>
+            </p>
+            <h4>@post.Title</h4>
+            <p><img class="img-responsive" src="~/img/blog01.jpg" alt=""></p>
+            @Html.Raw(post.Text)
+            <p><a asp-controller="Blog" asp-action="Detail" asp-route-postid="@post.Id">Continue Reading...</a></p>
+          </div>
+
+        </div>
+        <!-- /row -->
       </div>
-
+      <!-- /container -->
     </div>
-    <!-- /row -->
-  </div>
-  <!-- /container -->
-</div>
-<!-- /white -->
-
-<!-- +++++ Third Post +++++ -->
-<div id="grey">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
-        <p>
-          <img src="~/img/user.png" width="50px" height="50px" alt="">
-          <ba>Stanley Stinson</ba>
-        </p>
-        <p>
-          <bd>January 01, 2014</bd>
-        </p>
-        <h4>Believe In Yourself</h4>
-        <p class="bq">"A bird sitting on a tree is never afraid of the branch breaking, because her trust is not in the branch, but in her own wings."</p>
+    <!-- /grey -->
+  }
+}
+else
+{
+  <div id="white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <p>There are no posts yet.</p>
+        </div>
       </div>
-
+      <!-- /row -->
     </div>
-    <!-- /row -->
+    <!-- /container -->
   </div>
-  <!-- /container -->
-</div>
-<!-- /grey -->
+  <!-- /white -->
+}

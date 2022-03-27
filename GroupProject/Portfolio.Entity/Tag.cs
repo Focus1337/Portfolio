@@ -2,7 +2,7 @@
 
 public class Tag
 {
-    public string Id { get; set; } = null!;
+    public Guid Id { get; set; }
     public string Name { get; set; } = null!;
 
     public List<Post> Posts { get; set; }= new();
