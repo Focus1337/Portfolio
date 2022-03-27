@@ -9,5 +9,5 @@ public class Post
 
     public string AuthorId { get; set; } = null!;
     public User Author { get; set; } = null!; // many to one
-    public List<Tag> Tags { get; set; } = new(); // many to many
+    public List<Tag> Tags { get; set; } = null!; // many to many
 }

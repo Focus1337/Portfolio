@@ -50,21 +50,33 @@ public class BlogController : Controller
             if (user == null)
                 return NotFound();
 
-            var tagList = (from tag in model.Tags.Split(';')
-                where tag != ""
-                select new Tag {Id = Guid.NewGuid(), Name = tag}).ToList();
-
-            _context.Posts.Add(new Post
+            var post = new Post
             {
-                Title = model.Title, Text = model.Text, Tags = tagList, Author = user, AuthorId = user.Id,
+                Id = Guid.NewGuid(), Title = model.Title, Text = model.Text, Author = user, AuthorId = user.Id,
                 Date = DateTime.Now
-            });
+            };
+
+            var tagNames = model.Tags.Split(';');
+            var tags = await _context.Tags.Where(tag => tagNames.Contains(tag.Name)).ToListAsync();
+            var newTags = (from tagName in tagNames
+                    where tags.All(tag => tag.Name != tagName.ToLowerInvariant()) && tagName != ""
+                    select new Tag
+                        {Id = Guid.NewGuid(), Name = tagName.ToLowerInvariant()})
+                .ToList();
+
+            _context.Tags.AddRange(newTags);
+            await _context.SaveChangesAsync();
+            
+            _context.Posts.Add(post);
             await _context.SaveChangesAsync();
 
-            ModelState.AddModelError("", "Posted successfully!");
+            post.Tags = tags.Union(newTags).ToList();
+            await _context.SaveChangesAsync();
 
             _logger.LogInformation("User \"{User}\" added new post - {Blog}", User.Identity!.Name,
                 model.Title);
+
+            return RedirectToAction("Detail", new {postId = post.Id});
         }
 
         return View(model);
