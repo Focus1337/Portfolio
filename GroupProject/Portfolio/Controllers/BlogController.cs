@@ -66,19 +66,36 @@ public class BlogController : Controller
 
             _context.Tags.AddRange(newTags);
             await _context.SaveChangesAsync();
-            
+
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
 
             post.Tags = tags.Union(newTags).ToList();
             await _context.SaveChangesAsync();
 
-            _logger.LogInformation("User \"{User}\" added new post - {Blog}", User.Identity!.Name,
+            _logger.LogInformation("User \"{User}\" added new post - {Post}", User.Identity!.Name,
                 model.Title);
 
             return RedirectToAction("Detail", new {postId = post.Id});
         }
 
         return View(model);
+    }
+
+    [Authorize(Roles = "user")]
+    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "moderator")]
+    [Authorize(Roles = "owner")]
+    [HttpPost]
+    public async Task<IActionResult> Delete(Guid postId)
+    {
+        var post = await _context.Posts.FirstOrDefaultAsync(x => x.Id == postId);
+        _context.Posts.Remove(post!);
+        await _context.SaveChangesAsync();
+        _logger.LogInformation("User \"{User}\" deleted post - {PostName} (Id: {Id})",
+            User.Identity!.Name,
+            post!.Title, post.Id);
+
+        return RedirectToAction("Index");
     }
 }

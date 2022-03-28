@@ -39,8 +39,15 @@
             <p><img class="img-responsive" src="~/img/blog01.jpg" alt=""></p>
             @Html.Raw(post.Text)
             <p><a asp-controller="Blog" asp-action="Detail" asp-route-postid="@post.Id">Continue Reading...</a></p>
+            @if (User.IsInRole("admin") || User.IsInRole("moderator") || User.IsInRole("owner") || User.Identity!.Name == post.Author.UserName)
+            {
+              <form asp-action="Delete" asp-route-postid="@post.Id" method="post">
+                <button type="submit" class="btn btn-sm btn-danger">
+                  Delete
+                </button>
+              </form>
+            }
           </div>
-
         </div>
         <!-- /row -->
       </div>
