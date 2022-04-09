@@ -1,4 +1,5 @@
 ﻿@model Portfolio.ViewModels.LoginViewModel
+@using static Portfolio.CustomHelpers.CustomHelper 
 
 @{
     ViewBag.Title = "Log in";
@@ -13,43 +14,46 @@
                     <h3>Local account to log in</h3>
                     <hr>
 
-                    <form class="contact-form" method="post" asp-controller="Auth" asp-action="Login"
-                          asp-route-returnUrl="@Model.ReturnUrl">
-                        <div class="alert alert-info alert-dismissable" asp-validation-summary="ModelOnly">
-                            <a class="panel-close close" data-dismiss="alert">×</a> 
-                            <i class="fa fa-coffee"></i>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" asp-for="Email" class="form-control" placeholder="Your Email" required/>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="password" asp-for="Password" class="form-control" placeholder="Your Password" required/>
-                        </div>
-
-                        <div class="form-group">
-                            <label asp-for="RememberMe" class="form-label">
-                                <input asp-for="RememberMe"/>
-                                @Html.DisplayNameFor(m => m.RememberMe)
-                            </label>
-                        </div>
-
-                        <div class="form-send">
-                            <button type="submit" class="btn btn-large">Log In</button>
-                        </div>
-
-                        <div>
-                            <div class="form-group">
-                                <a id="forgot-password" href="#">Forgot your password?</a>
+                    @* <form class="contact-form" method="post" asp-controller="Auth" asp-action="Login" *@
+                    @*       asp-route-returnUrl="@Model.ReturnUrl"> *@
+                        @using (Html.BeginForm("Login", "Auth", $"returnUrl={Model!.ReturnUrl}", FormMethod.Post, true, new {@class = "contact-form"}))
+                        {
+                            <div class="alert alert-info alert-dismissable" asp-validation-summary="ModelOnly">
+                                <a class="panel-close close" data-dismiss="alert">×</a>
+                                <i class="fa fa-coffee"></i>
                             </div>
                             <div class="form-group">
-                                <a asp-controller="Auth" asp-action="Register">Register as a new user</a>
+                                <input type="email" asp-for="Email" class="form-control" placeholder="Your Email" required/>
                             </div>
+
                             <div class="form-group">
-                                <a id="resend-confirmation">Resend email confirmation</a>
+                                <input type="password" asp-for="Password" class="form-control" placeholder="Your Password" required/>
                             </div>
-                        </div>
-                    </form>
+
+                            <div class="form-group">
+                                <label asp-for="RememberMe" class="form-label">
+                                    <input asp-for="RememberMe"/>
+                                    @Html.DisplayNameFor(m => m.RememberMe)
+                                </label>
+                            </div>
+
+                            <div class="form-send">
+                                @Html.SubmitButton("submitButton", "Log In", "btn btn-large")
+                            </div>
+
+                            <div>
+                                <div class="form-group">
+                                    <a id="forgot-password" href="#">Forgot your password?</a>
+                                </div>
+                                <div class="form-group">
+                                    <a asp-controller="Auth" asp-action="Register">Register as a new user</a>
+                                </div>
+                                <div class="form-group">
+                                    <a id="resend-confirmation">Resend email confirmation</a>
+                                </div>
+                            </div>
+                        }
+                    @* </form> *@
                 </section>
             </div>
             
